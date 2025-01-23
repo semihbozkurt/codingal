@@ -15,3 +15,4 @@ age="15"
 dad="fatih"
 mom="berrin"
 print(f"persons name is {name} \n age is {age} \n fathers name: {dad}\n and mothers name: {mom}")
+
