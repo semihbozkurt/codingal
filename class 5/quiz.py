@@ -13,7 +13,7 @@ else:
 
 
 q2=input("what is the capital city of Norway")
-q2=q2.upper
+q2=q2.upper()
 if q2=="OSLO":
     print("True")
     score+=10
@@ -23,7 +23,7 @@ else:
     score-=5
 
 q3=input("what is the capital city of Canada")
-q3=q3.upper
+q3=q3.upper()
 if q3=="TORONTO":
     print("True")
     score+=10
@@ -33,7 +33,7 @@ else:
     score-=5
 
 q4=input("what is the name of the 10. element in the periodic table")
-q4=q4.upper
+q4=q4.upper()
 if q4=="NEON":
     print("True")
     score+=10
