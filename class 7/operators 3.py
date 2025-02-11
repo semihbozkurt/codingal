@@ -19,7 +19,7 @@ print(f"0 ^ 0 : {0 ^ 0}")
 print("---NOT operator table---")
 print(f"NOT 1 : {~1}") # 0
 print(f"NOT 0 : {~0}") # 1
-# << (left shift operator )   , >> (rigth shift operator)
+# << (left shift operator =x<<y= x*2**y )   , >> (rigth shift operator= x>>y= x/2**y)
 print("-----<< left shift operator----")
 print(16<<3)
 print("----->> right shift operator----")
