@@ -32,3 +32,7 @@ b=int(input("write the number"))
 for i in range(1,b+1):
     mul*=i
 print(mul)
+print("\n ----------")
+
+for i in "semih":
+    print(i)
