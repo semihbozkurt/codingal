@@ -5,14 +5,17 @@ while nmbr>0:
     nmbr=nmbr//10
     x+=1
 
-a=0
+nmbr=num
+
+
 sum=0
-while a<x:
-    sum+=int((str(num)[a]))**x
+while nmbr>0:
+    sum+=(nmbr%10) **x
+    nmbr//=10
 
 if sum==num:
     print("it is a armstrong number")
 else:
     print("no it is not")
 
-print("something")
+
