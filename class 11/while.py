@@ -20,3 +20,6 @@ while x<=num:
     sum+=x
     x+=1
 print("sum of the numbers is ", sum)
+
+while True:
+    print("")
