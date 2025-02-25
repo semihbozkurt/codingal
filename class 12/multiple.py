@@ -8,11 +8,17 @@ for i in range(n1,n2+1):
 
 print("-"*30)
 
-name=input("write the name")
-char=input("write the character that you want to see how many times it occours")
+name=input("write the name ")
+char=input("write the character that you want to see how many times it occours ")
 c=0
 for i in name:
     if i==char:
         c+=1
 print(c)
+
+
+print("-"*30)
+
+
+
 
