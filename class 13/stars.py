@@ -1,4 +1,6 @@
-'''
+print("\n------------------------NUMBERS--------------------------\n")
+
+
 n=int(input("write a number: "))
 
 count=1
@@ -10,7 +12,7 @@ for i in range(n):
         count+=1
 
 
-print(" \n ----------------")
+print(" \n -------------------UPSIDE DOWN---------------------\n")
 
 
 num=int(input("write the number of stars "))
@@ -22,8 +24,8 @@ for i in range(num):
         print("* "*clone)
         clone-=1
 
-print("------------\n")
-'''
+print("\n---------------DIAMOND---------------\n")
+
 
 
 s=int(input("write a number: "))
