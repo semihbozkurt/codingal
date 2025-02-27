@@ -44,14 +44,17 @@ for i in range(0,hesap,2):
 
 ''''''
 
-spc=s-1
 
-for i in range(0,hesap,2):
+spc=1
+
+for i in range(hesap-1,0,-2):
     for a in range(spc):
         print(" ",end="")
-    for j in range(i+1):
+    for j in range(i-1):
         print("*",end="")
     for b in range(spc):
         print(" ",end="")
-    spc-=1
+    spc+=1
     print()
+
+
