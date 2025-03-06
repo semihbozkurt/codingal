@@ -57,3 +57,22 @@ elif choice=="d":
     divi(num1,num2)
 
 print("program ended")
+
+print("multiple calculator")
+
+def multiadd(*nmbr):
+    sum=0
+    for i in nmbr:
+        sum+=i
+    print(sum)
+
+
+def multimulti(*nmbr):
+    sum=1
+    for i in nmbr:
+        sum*=i
+    print(sum)
+
+
+multimulti(4,5,10,33)
+multiadd(14,83,72,100,22)
