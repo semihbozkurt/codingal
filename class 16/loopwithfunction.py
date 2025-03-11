@@ -10,7 +10,8 @@ f2(message="welcome", name="Semih")
 
 def f3(n):
     if n==0: return
-    print(n)
     f3(n-1)
+    print(n)
+
 
 f3(100)
