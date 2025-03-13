@@ -8,14 +8,15 @@ for i in range(n1,1,-1):
         print(i)
         break
 '''
-n1=12
-n2=24
 
-def f(n):
-    if n1%n==0 and n2%n==0:
-        print(n)
-        return
-    f(n-1)
-    n+=1
+def gcd(a,b):
+    if b>a:
+        if a==0: return(b)
+        return gcd(a,b%a )
+    elif a>b:
+        if b==0: return(a)
+        return gcd(b,a%b)
+    
 
-f(10)
+
+print(gcd(a=int(input("first number")),b=int(input("second number"))))
