@@ -20,3 +20,4 @@ def gcd(a,b):
 
 
 print(gcd(a=int(input("first number")),b=int(input("second number"))))
+
