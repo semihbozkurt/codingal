@@ -10,6 +10,11 @@ print(lst)
 #if you multiplicate a list it will write the same list 
 print(lst*2)
 
+
+#learning the length of list:
+print(len(lst))
+
+
 #you can reverse it:
 lst.reverse()
 print("reversed list:",lst)
