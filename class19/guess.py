@@ -21,3 +21,4 @@ while True:
     except:
         print("your guess should be integer")
 
+a=input()
