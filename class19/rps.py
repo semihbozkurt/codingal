@@ -33,3 +33,4 @@ while True:
 
 print("game is finneshed")
 
+a=input()
