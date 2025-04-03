@@ -19,5 +19,6 @@ dict["sky"]= "gokyuzu"
 print(dict.get(word,"not found"))
 
 
-for key,value in dict.items():
+for key,value in dict.items():    #you can write only key or value
     print("key is: ",key,"/","value is:",value)
+
