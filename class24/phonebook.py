@@ -4,7 +4,6 @@ numbers={
 
 }
 
-size=len(dict)
 
 
 def createcont():
@@ -36,11 +35,12 @@ def delete():
 
 def show():
      sortkey=sorted(dict)
-     for i in range(size-1):
+     for i in range(len(dict)-1):
           print(dict[sortkey])
 
 
 while True:
+    print("write the number for operation you want\n--------------")
     operation=input('''
     1. create contact
     2. search for a contact
@@ -48,7 +48,7 @@ while True:
     4. delete a contact
     5. show all contacts
     6. exit
-    ''', end="-----------\n write the number for operation you want\n")
+    ''')
     if operation=="1":
          createcont
     elif operation=="2":
