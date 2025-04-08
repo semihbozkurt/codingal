@@ -34,7 +34,7 @@ def delete():
      else: print("name dosen't exist")
 
 def show():
-     for i in range(sorted(dict)):
+     for i in (sorted(dict)):
           print(i,dict[i])
 
 
