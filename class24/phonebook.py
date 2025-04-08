@@ -1,4 +1,4 @@
-numbers={
+dict={
 
 
 
@@ -9,7 +9,7 @@ numbers={
 def createcont():
     number=input("write the new number")
     name=input("write the name for number")
-    if name and number not in dict:
+    if (name and number) not in dict:
         dict[name]=number
     else: print("name and number already exists")
 
@@ -30,13 +30,12 @@ def update():
 def delete():
      name=input("write the name to delete")
      if name in dict:
-          dict.pop[name]
+          dict.pop(name)
      else: print("name dosen't exist")
 
 def show():
-     sortkey=sorted(dict)
-     for i in range(len(dict)-1):
-          print(dict[sortkey])
+     for i in range(sorted(dict)):
+          print(i,dict[i])
 
 
 while True:
@@ -50,15 +49,15 @@ while True:
     6. exit
     ''')
     if operation=="1":
-         createcont
+         createcont()
     elif operation=="2":
-         searchcont
+         searchcont()
     elif operation=="3":
-         update
+         update()
     elif operation=="4":
-         delete
+         delete()
     elif operation=="5":
-         show
+         show()
     elif operation=="6":
          break
     else:
