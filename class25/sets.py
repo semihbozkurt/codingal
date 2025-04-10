@@ -30,6 +30,7 @@ print (set3)
 set4={"semih","ali",True,2.4,209}
 
 set5={0,1,2,3}
+#pop deletes the first caracter:
 set5.pop()
 
 print("---------")
