@@ -5,3 +5,5 @@ while True:
     ask=input("continue (c) or finish (f)")
     if ask=="c": pass
     elif ask=="f": break
+
+print("program finished.")
