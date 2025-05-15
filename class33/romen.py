@@ -1,24 +1,31 @@
-rakam= {"I":1,
-"IV":4,
-"V":5,
-"IX":9,
-"X":10,
-"XL":40,
-"L":50,
-"XC":90,
-"C":100,
-"CD":400,
-"D":500,
-"CM":900,
-"M":1000}
+rakam = [
+    ("M", 1000),
+    ("CM", 900),
+    ("D", 500),
+    ("CD", 400),
+    ("C", 100),
+    ("XC", 90),
+    ("L", 50),
+    ("XL", 40),
+    ("X", 10),
+    ("IX", 9),
+    ("V", 5),
+    ("IV", 4),
+    ("I", 1)
+]
 
 
 
-romen=""
-class roman:
+
+class Roman:
     def __init__(self,num):
         self.num=num
-    def transfer(self,num):
+        
+
+
+    def transfer(self):
+        num=self.num
+        romen=""
         for key,value in rakam:
             while num>=value:
                 romen+=key
@@ -26,12 +33,16 @@ class roman:
 
         return romen
     
-giris=int(input("write a integer"))
+    def __str__(self):
+        return self.transfer()
+    
+
+
+giris=int(input("write a integer: "))
 
 if 0<giris<4000:
-    print("roman number is: ",roman(giris).transfer)
+    print("roman number is: ",Roman(giris))
 
 else:
     print("unexepteble number!")
 
-    
