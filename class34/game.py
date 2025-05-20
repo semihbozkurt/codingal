@@ -1,8 +1,9 @@
 import pygame
 pygame.init()
 
-width,height=800,600
-screen=pygame.display.set_mode(width,height)
+width=800
+height=600
+screen=pygame.display.set_mode((800,600))
 
 pygame.display.set_caption("First game")
 
