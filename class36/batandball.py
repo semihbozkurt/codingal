@@ -31,16 +31,21 @@ class Bat(pygame.sprite.Sprite):
         self.rect.y = 450
 
 
+class ball (pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+
+
 
 bat=Bat()
-playergroup=pygame.sprite.Sprite()
+playergroup=pygame.sprite.Group()
 playergroup.add(bat)
 
 
 
 while running:
     screen.fill("white")
-    pygame.draw.rect(screen,"blue",(batx,baty,150,50))
+    pygame.draw.rect(screen,"blue",(bat.rect.x,bat.rect.y,150,50))
     pygame.draw.circle(screen,"red",(ballx,bally,),20)
     bally+=1
     
@@ -49,12 +54,12 @@ while running:
             running=False
             
         if event.type==pygame.KEYDOWN:
-            if event.key==pygame.K_LEFT and batx>0:
-                batx-=30
-            if event.key==pygame.K_RIGHT and batx<width-150:
-                batx+=30
+            if event.key==pygame.K_LEFT and bat.rect.x>0:
+                bat.rect.x-=30
+            if event.key==pygame.K_RIGHT and bat.rect.x<width-150:
+                bat.rect.x+=30
     clock.tick(60)
-    screen.display.update()
+    pygame.display.update()
 
 
 pygame.quit
