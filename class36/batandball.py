@@ -14,6 +14,8 @@ bally=20
 import random
 ballx=random.randint(0,width)
 
+colorlist=["green","red","blue","orange","purple","black","yellow","pink","brown","gray","cyan"]
+
 class Bat(pygame.sprite.Sprite):
 
     def __init__(self):
@@ -31,24 +33,50 @@ class Bat(pygame.sprite.Sprite):
         self.rect.y = 450
 
 
-class ball (pygame.sprite.Sprite):
+class Ball (pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
+        self.image=pygame.Surface((100,100),pygame.SRCALPHA)
+        pygame.draw.circle(self.image,random.choice(colorlist),(50,50),20)
+        self.rect=self.image.get_rect()
+        self.rect.x=random.randint(0,width)
+
+    def update(self):
+        self.rect.y+=1
+
+
+
 
 
 
 bat=Bat()
 playergroup=pygame.sprite.Group()
 playergroup.add(bat)
+ball=Ball()
+enemygroup=pygame.sprite.Group()
+enemygroup.add(ball)
+
+count=0
+
 
 
 
 while running:
     screen.fill("white")
-    pygame.draw.rect(screen,"blue",(bat.rect.x,bat.rect.y,150,50))
-    pygame.draw.circle(screen,"red",(ballx,bally,),20)
-    bally+=1
+    """pygame.draw.rect(screen,"blue",(bat.rect.x,bat.rect.y,150,50))
+    pygame.draw.circle(screen,"red",(ballx,bally,),20)"""
+    playergroup.draw(screen)
+    enemygroup.draw(screen)
+    enemygroup.update()
     
+
+    
+    count+=1
+    if count%100==0: 
+        ball=Ball()
+        enemygroup.add(ball)
+
+
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False
@@ -58,6 +86,9 @@ while running:
                 bat.rect.x-=30
             if event.key==pygame.K_RIGHT and bat.rect.x<width-150:
                 bat.rect.x+=30
+        if pygame.sprite.spritecollideany(bat,enemygroup):
+            pygame.sprite.spritecollide(bat,enemygroup,True)
+
     clock.tick(60)
     pygame.display.update()
 
@@ -93,9 +124,13 @@ batX = 200
 
 batY = 450
 
-ballY = 20
+ballY = 10
 
 import random
+
+ballX = random.randint(0,width)
+
+colorList = ["red","green","blue","yellow","purple","orange","pink","brown","black","white","gray","cyan","magenta","lime","teal","maroon","navy","olive","silver","gold","beige","turquoise","lavender","indigo","violet","plum"]
 
 # currenlty bat and ball are not being taken as game Object
 
@@ -105,7 +140,7 @@ def __init__(self):
 
 super().__init__()
 
-self.image = pygame.Surface((150,50))
+self.image = pygame.Surface((150,50),pygame.SRCALPHA)
 
 self.image.fill("blue")
 
@@ -115,10 +150,25 @@ self.rect.x = 200
 
 self.rect.y = 450
 
-class Ball(pygame.sprite.Sprite)
+class Ball(pygame.sprite.Sprite):
 
-pass
+def __init__(self):
 
+super().__init__()
+
+self.image = pygame.Surface((100,100),pygame.SRCALPHA)
+
+pygame.draw.circle(self.image,random.choice(colorList),(50,50),20)
+
+self.rect = self.image.get_rect() #i want to get the container of the circle
+
+self.rect.x = random.randint(0,width)
+
+# sprite class: overriding
+
+def update(self):
+
+self.rect.y += 1
 
 bat = Bat()
 
@@ -132,7 +182,7 @@ enemygroup.add(ball)
 
 player.add(bat)
 
-ballX = random.randint(0,width)
+count = 0
 
 while runningStatus:
 
@@ -142,7 +192,22 @@ screen.fill("white")
 
 player.draw(screen)
 
-pygame.draw.circle(screen, "red", (ballX, ballY), 20)
+enemygroup.draw(screen)
+
+enemygroup.update()
+
+
+count += 1
+
+
+if count % 100 == 0:
+
+
+ball = Ball()
+
+enemygroup.add(ball)
+
+# pygame.draw.circle(screen, "red", (ballX, ballY), 20)
 
 ballY += 1
 
@@ -165,6 +230,10 @@ if event.key == pygame.K_RIGHT and bat.rect.x < width-150:
 print("hello")
 
 bat.rect.x += 30
+
+if pygame.sprite.spritecollideany(bat, enemygroup):
+
+pygame.sprite.spritecollide(bat, enemygroup,False)
 
 clock.tick(60)
 
