@@ -8,6 +8,21 @@ screen=pygame.display.set_mode((width,hight))
 clock=pygame.time.Clock()
 running=True
 
+background=pygame.image.load(r"Cayir.png")
+background=pygame.transform.scale(background,(width,hight))
+
+
+score=0
+numlives=5
+
+scorefont=pygame.font.Font(None,32)
+finishfont=pygame.font.Font(None,55)
+
+
+
+
+
+
 batx=200
 baty=450
 bally=20
@@ -62,9 +77,16 @@ count=0
 
 
 while running:
-    screen.fill("white")
-    """pygame.draw.rect(screen,"blue",(bat.rect.x,bat.rect.y,150,50))
-    pygame.draw.circle(screen,"red",(ballx,bally,),20)"""
+
+    textsurfece=scorefont.render(f"score={score}",True,(255,255,255))
+    livestext=scorefont.render(f"lives={numlives}",True,(255,255,255))
+    finish=finishfont.render(f"GAME-OVER SCORE:{score}",True,(50,50,100))
+
+    screen.blit(background,(0,0))
+    screen.blit(textsurfece,(50,50))
+    screen.blit(livestext,(50,100))
+    
+
     playergroup.draw(screen)
     enemygroup.draw(screen)
     enemygroup.update()
@@ -77,6 +99,19 @@ while running:
         enemygroup.add(ball)
 
 
+    for ball in enemygroup:
+            if ball.rect.y>=hight:
+                ball.kill()
+                numlives-=1
+
+
+    if numlives==0:
+            bat.kill()
+            enemygroup.empty()
+            screen.blit(finish,(1,250))
+
+
+
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False
@@ -86,8 +121,13 @@ while running:
                 bat.rect.x-=30
             if event.key==pygame.K_RIGHT and bat.rect.x<width-150:
                 bat.rect.x+=30
-        if pygame.sprite.spritecollideany(bat,enemygroup):
-            pygame.sprite.spritecollide(bat,enemygroup,True)
+    if pygame.sprite.spritecollideany(bat,enemygroup):
+        pygame.sprite.spritecollide(bat,enemygroup,True)
+        score+=1
+        
+        
+        
+        
 
     clock.tick(60)
     pygame.display.update()
