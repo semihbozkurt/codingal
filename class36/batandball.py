@@ -1,6 +1,13 @@
 import pygame
 pygame.init()
 
+
+pygame.mixer.init()
+smusic=pygame.mixer.music.load("myst.mp3.mp3")
+pygame.mixer.music.play(-1)
+
+collison=pygame.mixer.Sound("colsn.mp3")
+
 width=500
 hight=500
 
@@ -124,6 +131,7 @@ while running:
     if pygame.sprite.spritecollideany(bat,enemygroup):
         pygame.sprite.spritecollide(bat,enemygroup,True)
         score+=1
+        collison.play(maxtime=1000)#1 second
         
         
         
