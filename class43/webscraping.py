@@ -28,6 +28,6 @@ butto=Button(win,text="get the weather",bg="blue",command=getweather)
 butto.place(x=150,y=100,)
 
 fram=Label(win)
-fram.place(x=125,y=150)
+fram.place(x=135,y=150)
 
 win.mainloop()
