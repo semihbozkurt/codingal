@@ -29,7 +29,7 @@ def generate_image():
             img= Image.open(imgdata)
 
             filename = datetime.now().strftime("output_%Y%m%d_%H%M%S.png")
-            img.save(filename)
+            img.save(f"C:/Users/fatih/Documents/codingal/imagesbygenarator/{filename}")
 
             maxwidth=512
             maxheigth=512
