@@ -3,6 +3,7 @@ import requests
 from PIL import Image , ImageTk
 from tkinter import messagebox
 from io import BytesIO
+from datetime import datetime
 
 url="https://clipdrop-api.co/text-to-image/v1"
 api="f55876c72b9198d417f033d9c2b53ada594d60770a3699f5a6846f90639d4d7fb038ef8ca2c33e8eea8e31c3c2982107"
@@ -22,10 +23,13 @@ def generate_image():
             "prompt":(None,text,"text/plain")} , headers={"x-api-key":api})
         
         if res.ok:
-            print(res.content)
+            # print(res.content)
 
             imgdata=BytesIO(res.content)
             img= Image.open(imgdata)
+
+            filename = datetime.now().strftime("output_%Y%m%d_%H%M%S.png")
+            img.save(filename)
 
             maxwidth=512
             maxheigth=512
