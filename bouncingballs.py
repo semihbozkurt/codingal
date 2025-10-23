@@ -30,27 +30,36 @@ class Ball (pygame.sprite.Sprite):
             self.rect.x+=self.hiz_x
 
 
+            if self.rect.x>=width-50 or self.rect.x<=-50:
+                self.hiz_x=-self.hiz_x
+            if self.rect.y>=height-50 or self.rect.y<=-50:
+                self.hiz_y=-self.hiz_y
+
+
 
 ball=Ball()
 group=pygame.sprite.Group()
 group.add(ball)
 
+for i in range (1,9):
+         ball=Ball()
+         group.add(ball)
+
 while runing:
     screen.fill("red")
     
+    
     group.draw(screen)
+    
     group.update()
 
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             runing=False
             
-    if ball.rect.x>=width:
-        ball.self.hiz_x=-ball.self.hiz_x
-    if ball.rect.y>=height:
-         ball.self.hiz_y=-ball.self.hiz_y
+   
 
-
+    
     pygame.display.update()
 
 pygame.quit()
