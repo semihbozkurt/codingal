@@ -26,8 +26,8 @@ class Ball (pygame.sprite.Sprite):
 
 
     def update(self):
-            self.rect.y+=hiz_y
-            self.rect.x+=hiz_x
+            self.rect.y+=self.hiz_y
+            self.rect.x+=self.hiz_x
 
 
 
@@ -46,9 +46,9 @@ while runing:
             runing=False
             
     if ball.rect.x>=width:
-        hiz_x=-hiz_x
+        ball.self.hiz_x=-ball.self.hiz_x
     if ball.rect.y>=height:
-         hiz_y=-hiz_y
+         ball.self.hiz_y=-ball.self.hiz_y
 
 
     pygame.display.update()
